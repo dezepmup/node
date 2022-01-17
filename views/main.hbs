@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Steam Trades</title>
+</head>
+
+<body>
+
+	{{#if user}}
+	<h1>Welcome, {{#each user}}{{this.personaname}}{{/each}}</h1>
+	<p>Your steamid: {{#each user}}{{this.steamid}}{{/each}}</p>
+	<p>Your avatar: {{#each user}}<img src="{{this.avatar}}">{{/each}}</p>
+	<p>Your credits:{{#each user}}{{this.credits}}{{/each}}</p>
+
+
+
+	<h3>You have {{#if user.credits}}{{user.credits}}{{else}}0{{/if}} credits</h3>
+	<a href="/deposit">Deposit</a>
+	<br />
+	<a href="/withdraw">Withdraw</a>
+	<br /><br />
+	<a href="/logout">Logout</a>
+	{{else}}
+	<a href="/auth/steam">Click here to login</a>
+	{{/if}}
+</body>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/main.js"></script>
+
+</html>
