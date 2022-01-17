@@ -8,9 +8,8 @@
 <body>
 	<h1>Withdraw Items</h1>
 	<ul>
-		1{{items}}
 		{{#each items}}
-		<li class="withdraw item" data-assetid="{{this.assetid}}">{{this.name}} (${{this.price}})</li>
+		<li class="withdraw item" data-assetid="{{this.assetid}}">{{this.market_hash_name}} (${{this.price}})<img src="{{this.image}}"> </li>
 		{{/each}}
 	</ul>
 </body>

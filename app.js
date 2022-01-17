@@ -193,6 +193,7 @@ app.get('/deposit', (req, res) => {
                       },
                       (err, doc) => {
                         item.price = doc ? doc.price : 0;
+                        item.image = `https://community.akamai.steamstatic.com/economy/image/${item.icon_url}`
                         done(null, item);
                       }
                     );
@@ -208,6 +209,7 @@ app.get('/deposit', (req, res) => {
                           items: results
                         }
                       },
+                      { upsert: true },
                       err => {
                         if (err) {
                           console.log(err);
@@ -226,7 +228,7 @@ app.get('/deposit', (req, res) => {
           );
         }
       }
-    );
+    ).lean();
   } else {
     res.redirect('/auth/steam');
   }

@@ -6,6 +6,7 @@ module.exports = mongoose.model('Inventory', {
   items: [
     {
       market_name: String,
+      market_hash_name: String,
       assetid: String,
       image: String,
       price: Number
