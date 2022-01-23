@@ -26,7 +26,6 @@ class SteamBot {
       } else {
         // тут возвращаем баланс
         console.log('offer decline');
-
       }
     })
   }
