@@ -80,26 +80,32 @@ class SteamBot {
       } else {
         const item = inv.find(item => item.assetid == assetid);
         if (item) {
+
           // Check to make sure the user can afford the item here
           console.log(credits, 'мой баланс перед отправкой оффера');
+          console.log(item);
+          //типа цена
+          const price = 10;
+
           offer.addMyItem(item);
           offer.setMessage('Withdraw item from the website!');
           offer.send((err, status) => {
             callback(err, status === 'sent' || status === 'pending', offer.id);
           });
+
+          //тестируем баланс
           this.manager.on('sentOfferChanged', (offer) => {
             if (offer.state === 2) {
               //тут холдим баланс
-              console.log('offer sended');
-              console.log(credits, 'баланс');
+              credits = credits - price;
+              console.log(credits, 'баланс + offer sended');
             } else if (offer.state === 3) {
               //тут снимаем баланс
-              console.log('offer accepted');
-              console.log(credits, 'баланс');
+              console.log(credits, 'баланс + offer accepted');
             } else {
               // тут возвращаем баланс
-              console.log('offer decline');
-              console.log(credits, 'баланс');
+              credits = credits + price;
+              console.log(credits, 'баланс + offer decline');
             }
           });
         } else {
