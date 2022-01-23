@@ -3,30 +3,68 @@
 
 <head>
 	<title>Steam Trades</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
+	<nav class="navbar navbar-expand-md bg-light navbar-light">
+		<a class="navbar-brand" href="/">Logo here</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				{{#if user}}
+				<li class="nav-item">
+					<a class="nav-link" href="/deposit">Deposit</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/withdraw">Withdraw</a>
+				</li>
+				<li class="nav-item">
+					<span class="nav-link">Your credits:{{#each user}}{{this.credits}}{{/each}}</span>
+				</li>
+				{{else}}
+				Login to see another pages!
+				{{/if}}
+			</ul>
+			<div class="ml-auto">
+				{{#if user}}
+				{{#each user}}<img src="{{this.avatar}}" />{{/each}}
+				<a class="btn btn-outline-primary" href="/logout">Logout</a>
+				{{else}}
+				<a href="/auth/steam"><img
+						src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png"></a>
+				{{/if}}
+			</div>
+		</div>
+	</nav>
 
-	{{#if user}}
-	<h1>Welcome, {{#each user}}{{this.personaname}}{{/each}}</h1>
-	<p>Your steamid: {{#each user}}{{this.steamid}}{{/each}}</p>
-	<p>Your avatar: {{#each user}}<img src="{{this.avatar}}">{{/each}}</p>
-	<p>Your credits:{{#each user}}{{this.credits}}{{/each}}</p>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 mt-5">
+				{{#if user}}
+				<h1>Welcome, {{#each user}}{{this.personaname}}{{/each}}</h1>
+				<p>Your steamid: {{#each user}}{{this.steamid}}{{/each}}</p>
+				<p>Your avatar: {{#each user}}<img src="{{this.avatar}}">{{/each}}</p>
+				<h3>You have {{#if user.credits}}{{user.credits}}{{else}}0{{/if}} credits</h3>
+				{{else}}
+				Login to see your info!
+				{{/if}}
+			</div>
+		</div>
+	</div>
 
 
 
-	<h3>You have {{#if user.credits}}{{user.credits}}{{else}}0{{/if}} credits</h3>
-	<a href="/deposit">Deposit</a>
-	<br />
-	<a href="/withdraw">Withdraw</a>
-	<br /><br />
-	<a href="/logout">Logout</a>
-	{{else}}
-	<a href="/auth/steam">Click here to login</a>
-	{{/if}}
+
+
 </body>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/main.js"></script>
 

@@ -193,6 +193,7 @@ app.get('/deposit', (req, res) => {
                       },
                       (err, doc) => {
                         item.price = doc ? doc.price : 0;
+                        item.image = `https://community.akamai.steamstatic.com/economy/image/${item.icon_url}`
                         done(null, item);
                       }
                     );
@@ -208,6 +209,7 @@ app.get('/deposit', (req, res) => {
                           items: results
                         }
                       },
+                      { upsert: true },
                       err => {
                         if (err) {
                           console.log(err);
@@ -226,7 +228,7 @@ app.get('/deposit', (req, res) => {
           );
         }
       }
-    );
+    ).lean();
   } else {
     res.redirect('/auth/steam');
   }
@@ -234,29 +236,72 @@ app.get('/deposit', (req, res) => {
 
 app.get('/withdraw', (req, res) => {
   if (req.user) {
-    Item.find({}, (err, inv) => {
-      async.map(
-        inv,
-        (item, done) => {
-          Price.findOne(
-            {
-              market_hash_name: item.name
-            },
-            (err, doc) => {
-              item.price = doc ? doc.price : 0;
-              done(null, item.toObject());
-            }
-          );
-        },
-        (err, results) => {
+    Item.findOne(
+      {
+        steamid: config.botSteamId
+      },
+      (err, inv) => {
+        if (inv && Date.now() - inv.updated < 6 * 60 * 60 * 1000) {
           res.render('withdraw', {
             layout: false,
             user: req.user,
-            items: results
+            items: inv.items
           });
+        } else {
+          community.getUserInventoryContents(
+            config.botSteamId,
+            730,
+            2,
+            true,
+            (err, inv) => {
+              if (err) {
+                console.log(err);
+              } else {
+                async.map(
+                  inv,
+                  (item, done) => {
+                    Price.findOne(
+                      {
+                        market_hash_name: item.market_hash_name
+                      },
+                      (err, doc) => {
+                        item.price = doc ? doc.price : 0;
+                        item.image = `https://community.akamai.steamstatic.com/economy/image/${item.icon_url}`
+                        done(null, item);
+                      }
+                    );
+                  },
+                  (err, results) => {
+                    Item.updateMany(
+                      {
+                        steamid: config.botSteamId
+                      },
+                      {
+                        $set: {
+                          updated: Date.now(),
+                          items: results
+                        }
+                      },
+                      { upsert: true },
+                      err => {
+                        if (err) {
+                          console.log(err);
+                        }
+                      }
+                    );
+                    res.render('withdraw', {
+                      layout: false,
+                      user: req.user,
+                      items: results
+                    });
+                  }
+                );
+              }
+            }
+          );
         }
-      );
-    });
+      }
+    ).lean();
   } else {
     res.redirect('/auth/steam');
   }

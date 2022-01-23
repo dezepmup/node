@@ -14,6 +14,11 @@ class SteamBot {
     });
 
     this.logOn(logOnOptions);
+    //TODO:  обработать событие и записать в базу результат если саксес в юзерс (accepted === 3 , ETradeOfferStatuses === тут статусы)
+    this.manager.on('sentOfferChanged', (offer) => {
+      console.log(offer.state, 'hshs');
+      console.log(offer, 'full');
+    })
   }
 
   logOn(logOnOptions) {
@@ -63,8 +68,7 @@ class SteamBot {
       if (err) {
         console.log(err);
       } else {
-        const item = inv.find(item => item.assetid === assetid);
-        console.log(item);
+        const item = inv.find(item => item.assetid == assetid);
         if (item) {
           // Check to make sure the user can afford the item here
 

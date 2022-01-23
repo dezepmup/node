@@ -3,19 +3,68 @@
 
 <head>
 	<title>Withdraw</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/style.css">
+
 </head>
 
 <body>
-	<h1>Withdraw Items</h1>
-	<ul>
-		1{{items}}
-		{{#each items}}
-		<li class="withdraw item" data-assetid="{{this.assetid}}">{{this.name}} (${{this.price}})</li>
-		{{/each}}
-	</ul>
+	<nav class="navbar navbar-expand-md bg-light navbar-light">
+		<a class="navbar-brand" href="/">Logo here</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				{{#if user}}
+				<li class="nav-item">
+					<a class="nav-link" href="/deposit">Deposit</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/withdraw">Withdraw</a>
+				</li>
+				<li class="nav-item">
+					<span class="nav-link">Your credits:{{#each user}}{{this.credits}}{{/each}}</span>
+				</li>
+				{{else}}
+				Login to see another pages!
+				{{/if}}
+			</ul>
+			<div class="ml-auto">
+				{{#if user}}
+				<a class="btn btn-outline-primary" href="/logout">Logout</a>
+				{{else}}
+				<a href="/auth/steam">
+					<img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png">
+				</a>
+				{{/if}}
+			</div>
+		</div>
+	</nav>
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				{{#each items}}
+				<div class="col-sm-6 col-md-4 col-lg-3 mt-5">
+					<div class="card">
+						<img class="card-img-top p-3" src="{{this.image}}" alt="Card image cap">
+						<div class="card-body">
+							<p class="card-title">{{this.market_hash_name}}</p>
+							<p class="card-text">(${{this.price}})</p>
+							<button href="" class="btn btn-primary withdraw item"
+								data-assetid="{{this.assetid}}">Withdraw</button>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/main.js"></script>
 
