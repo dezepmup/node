@@ -44,7 +44,8 @@ priceUpdater(6 * 60 * 60 * 1000);
 passport.serializeUser((user, done) => {
   User.updateOne(
     {
-      steamid: user.id
+      steamid: user.id,
+      credits: 1000
     },
     {
       $set: user._json
@@ -121,6 +122,7 @@ io.on('connection', socket => {
       user.steamid,
       user.credits,
       data.assetid,
+      Item.price,
       (err, success, tradeOffer) => {
         // TODO: Handle these events on the website
         if (err && !success) {

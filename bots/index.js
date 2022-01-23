@@ -17,7 +17,17 @@ class SteamBot {
     //TODO:  обработать событие и записать в базу результат если саксес в юзерс (accepted === 3 , ETradeOfferStatuses === тут статусы)
     this.manager.on('sentOfferChanged', (offer) => {
       console.log(offer.state, 'hshs');
-      console.log(offer, 'full');
+      if (offer.state === 2) {
+        //тут холдим баланс
+        console.log('offer sended');
+      } else if (offer.state === 3) {
+        //тут снимаем баланс
+        console.log('offer accepted');
+      } else {
+        // тут возвращаем баланс
+        console.log('offer decline');
+
+      }
     })
   }
 
@@ -61,17 +71,20 @@ class SteamBot {
     });
   }
 
-  sendWithdrawTrade(partner, credits, assetid, callback) {
+  sendWithdrawTrade(partner, credits, assetid, price, callback) {
     const offer = this.manager.createOffer(partner);
 
     this.manager.getInventoryContents(730, 2, true, (err, inv) => {
+
+
       if (err) {
         console.log(err);
       } else {
         const item = inv.find(item => item.assetid == assetid);
         if (item) {
           // Check to make sure the user can afford the item here
-
+          console.log(credits);
+          console.log(price);
           offer.addMyItem(item);
           offer.setMessage('Withdraw item from the website!');
           offer.send((err, status) => {
