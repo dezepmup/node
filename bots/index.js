@@ -16,7 +16,6 @@ class SteamBot {
     this.logOn(logOnOptions);
     //TODO:  обработать событие и записать в базу результат если саксес в юзерс (accepted === 3 , ETradeOfferStatuses === тут статусы)
     this.manager.on('sentOfferChanged', (offer) => {
-      console.log(offer.state, 'hshs');
       if (offer.state === 2) {
         //тут холдим баланс
         console.log('offer sended');
