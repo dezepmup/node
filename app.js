@@ -122,7 +122,6 @@ io.on('connection', socket => {
       user.steamid,
       user.credits,
       data.assetid,
-      Item.price,
       (err, success, tradeOffer) => {
         // TODO: Handle these events on the website
         if (err && !success) {

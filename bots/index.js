@@ -15,18 +15,21 @@ class SteamBot {
 
     this.logOn(logOnOptions);
     //TODO:  обработать событие и записать в базу результат если саксес в юзерс (accepted === 3 , ETradeOfferStatuses === тут статусы)
-    this.manager.on('sentOfferChanged', (offer) => {
-      if (offer.state === 2) {
-        //тут холдим баланс
-        console.log('offer sended');
-      } else if (offer.state === 3) {
-        //тут снимаем баланс
-        console.log('offer accepted');
-      } else {
-        // тут возвращаем баланс
-        console.log('offer decline');
-      }
-    });
+    // this.manager.on('sentOfferChanged', (offer) => {
+    //   if (offer.state === 2) {
+    //     //тут холдим баланс
+    //     console.log('offer sended');
+    //     console.log(credits, 'баланс');
+    //   } else if (offer.state === 3) {
+    //     //тут снимаем баланс
+    //     console.log('offer accepted');
+    //     console.log(credits, 'баланс');
+    //   } else {
+    //     // тут возвращаем баланс
+    //     console.log('offer decline');
+    //     console.log(credits, 'баланс');
+    //   }
+    // });
   }
 
   logOn(logOnOptions) {
@@ -68,7 +71,7 @@ class SteamBot {
     });
   }
 
-  sendWithdrawTrade(partner, credits, assetid, price, callback) {
+  sendWithdrawTrade(partner, credits, assetid, callback) {
     const offer = this.manager.createOffer(partner);
 
     this.manager.getInventoryContents(730, 2, true, (err, inv) => {
@@ -78,12 +81,26 @@ class SteamBot {
         const item = inv.find(item => item.assetid == assetid);
         if (item) {
           // Check to make sure the user can afford the item here
-          console.log(credits);
-          console.log(price);
+          console.log(credits, 'мой баланс перед отправкой оффера');
           offer.addMyItem(item);
           offer.setMessage('Withdraw item from the website!');
           offer.send((err, status) => {
             callback(err, status === 'sent' || status === 'pending', offer.id);
+          });
+          this.manager.on('sentOfferChanged', (offer) => {
+            if (offer.state === 2) {
+              //тут холдим баланс
+              console.log('offer sended');
+              console.log(credits, 'баланс');
+            } else if (offer.state === 3) {
+              //тут снимаем баланс
+              console.log('offer accepted');
+              console.log(credits, 'баланс');
+            } else {
+              // тут возвращаем баланс
+              console.log('offer decline');
+              console.log(credits, 'баланс');
+            }
           });
         } else {
           callback(new Error('Could not find item'), false);
