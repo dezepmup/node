@@ -83,7 +83,6 @@ class SteamBot {
 
           // Check to make sure the user can afford the item here
           console.log(credits, 'мой баланс перед отправкой оффера');
-          console.log(item);
           //типа цена
           const price = 10;
 
