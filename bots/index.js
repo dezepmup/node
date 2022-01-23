@@ -72,8 +72,6 @@ class SteamBot {
     const offer = this.manager.createOffer(partner);
 
     this.manager.getInventoryContents(730, 2, true, (err, inv) => {
-
-
       if (err) {
         console.log(err);
       } else {
