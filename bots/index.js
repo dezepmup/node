@@ -36,7 +36,6 @@ class SteamBot {
       console.log('Logged into Steam');
 
       this.client.setPersona(SteamUser.EPersonaState.Online);
-      this.client.gamesPlayed(730);
     });
 
     this.client.on('webSession', (sessionid, cookies) => {
