@@ -26,7 +26,7 @@ class SteamBot {
         // тут возвращаем баланс
         console.log('offer decline');
       }
-    })
+    });
   }
 
   logOn(logOnOptions) {
