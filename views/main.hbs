@@ -49,7 +49,7 @@
 				<h1>Welcome, {{#each user}}{{this.personaname}}{{/each}}</h1>
 				<p>Your steamid: {{#each user}}{{this.steamid}}{{/each}}</p>
 				<p>Your avatar: {{#each user}}<img src="{{this.avatar}}">{{/each}}</p>
-				<h3>You have {{#if user.credits}}{{user.credits}}{{else}}0{{/if}} credits</h3>
+				<h3>You have {{#each user}}{{this.credits}}{{/each}} credits</h3>
 				{{else}}
 				Login to see your info!
 				{{/if}}

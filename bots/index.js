@@ -10,7 +10,9 @@ class SteamBot {
     this.manager = new TradeOfferManager({
       steam: this.client,
       community: this.community,
-      language: 'en'
+      language: 'en',
+      pollInterval: 10000,
+      cancelTime: 300000
     });
 
     this.logOn(logOnOptions);
@@ -84,7 +86,6 @@ class SteamBot {
           // Check to make sure the user can afford the item here
           console.log(credits, 'мой баланс перед отправкой оффера');
           //типа цена
-          const price = 10;
 
           offer.addMyItem(item);
           offer.setMessage('Withdraw item from the website!');
@@ -96,14 +97,12 @@ class SteamBot {
           this.manager.on('sentOfferChanged', (offer) => {
             if (offer.state === 2) {
               //тут холдим баланс
-              credits = credits - price;
               console.log(credits, 'баланс + offer sended');
             } else if (offer.state === 3) {
               //тут снимаем баланс
               console.log(credits, 'баланс + offer accepted');
             } else {
               // тут возвращаем баланс
-              credits = credits + price;
               console.log(credits, 'баланс + offer decline');
             }
           });
