@@ -7,7 +7,8 @@ npm i
 
 docker-compose up
 
-node app.js
+npm run dev - for development
+npm run start - for prod
 
 http://localhost:8111/ - see db collections
 

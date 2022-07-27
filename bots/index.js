@@ -1,7 +1,8 @@
 const SteamUser = require('steam-user');
 const SteamCommunity = require('steamcommunity');
 const TradeOfferManager = require('steam-tradeoffer-manager');
-const config = require('../config.json');
+const Environment = require('../data/constants/Environment');
+const config = Environment.getEnvironments();
 
 class SteamBot {
   constructor(logOnOptions) {
@@ -11,8 +12,7 @@ class SteamBot {
       steam: this.client,
       community: this.community,
       language: 'en',
-      pollInterval: 10000,
-      cancelTime: 300000
+      pollInterval: 10000
     });
 
     this.logOn(logOnOptions);
@@ -47,7 +47,7 @@ class SteamBot {
       this.manager.setCookies(cookies);
 
       this.community.setCookies(cookies);
-      this.community.startConfirmationChecker(10000, config.identitySecret);
+      this.community.startConfirmationChecker(10000, config.steamConfiguration.identitySecret);
     });
   }
 
@@ -73,7 +73,7 @@ class SteamBot {
     });
   }
 
-  sendWithdrawTrade(partner, credits, assetid, callback) {
+  sendWithdrawTrade(partner, credits, assetid, price, callback) {
     const offer = this.manager.createOffer(partner);
 
     this.manager.getInventoryContents(730, 2, true, (err, inv) => {
@@ -92,18 +92,18 @@ class SteamBot {
           offer.send((err, status) => {
             callback(err, status === 'sent' || status === 'pending', offer.id);
           });
-
+          //TODO: списать баланс исходя из текущего прайса предмета
           //тестируем баланс
           this.manager.on('sentOfferChanged', (offer) => {
             if (offer.state === 2) {
               //тут холдим баланс
-              console.log(credits, 'баланс + offer sended');
+              console.log(credits, price, 'баланс + offer sended');
             } else if (offer.state === 3) {
               //тут снимаем баланс
-              console.log(credits, 'баланс + offer accepted');
+              console.log(credits, price, 'баланс + offer accepted');
             } else {
               // тут возвращаем баланс
-              console.log(credits, 'баланс + offer decline');
+              console.log(credits, price, 'баланс + offer decline');
             }
           });
         } else {

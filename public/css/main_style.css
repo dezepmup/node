@@ -1,0 +1,1510 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+@media (min-width: 1260px) {
+  .container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+    max-width: 1246px;
+  }
+}
+h1 {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 140%;
+}
+
+h2 {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
+}
+
+h3 {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+}
+
+.offer-section .offer-card .offer-card-title .offer-title, h4 {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+}
+
+.body_1 {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+}
+
+.body_2 {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.body_3 {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+}
+
+.body_4 {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+body {
+  color: #a8adb5;
+  background-color: #2e2e3a;
+  overflow-x: hidden;
+  padding-top: 96px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  cursor: url(/img/cursor.svg), auto;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+.header_mobile {
+  display: none;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: #2e2e3a;
+  background-image: url(/img/line-header.svg);
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+header .header_flex {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .header_flex .header_left a {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+header .header_flex .header_left a svg {
+  margin-right: 10px;
+}
+header .header_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+header .header_right .for_logout {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 45px;
+}
+header .header_right .for_logout svg {
+  margin-left: 8px;
+}
+header .header_right .for_balance {
+  margin-right: 45px;
+}
+header .header_right .for_balance p {
+  display: inline-flex;
+  align-items: center;
+}
+header .header_right .for_balance p img {
+  margin-left: 6px;
+  margin-right: 5px;
+}
+header .header_right .for_steam_login a {
+  background-color: #f2ff5b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 136px;
+  height: 40px;
+  border-radius: 3px;
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: #2e2e3a;
+  text-decoration: none;
+  padding-right: 37px;
+  padding-left: 22px;
+  transition: 0.3s ease-in-out;
+}
+header .header_right .for_steam_login a .steam-icon {
+  margin-right: 8px;
+}
+header .header_right .for_steam_login a:hover {
+  background-color: #fbff20;
+}
+header .header_right .for_steam_login-autorize {
+  display: flex;
+  align-items: center;
+}
+header .header_right .for_steam_login-autorize a {
+  background-color: #f2ff5b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 136px;
+  height: 40px;
+  border-radius: 3px;
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: #2e2e3a;
+  text-decoration: none;
+  padding-right: 37px;
+  padding-left: 22px;
+  transition: 0.3s ease-in-out;
+}
+header .header_right .for_steam_login-autorize a .steam-icon {
+  margin-right: 8px;
+}
+header .header_right .for_steam_login-autorize a:hover {
+  background-color: #fbff20;
+}
+header .header_right .for_steam_login-autorize .user-icon-wrapper {
+  display: flex;
+  align-items: center;
+}
+header .header_right .for_steam_login-autorize .user-icon-wrapper .user-name,
+header .header_right .for_steam_login-autorize .user-icon-wrapper .user-icon {
+  margin-right: 14px;
+}
+header .header_right .for_steam_login-autorize .logout {
+  background: #42424e;
+  border-radius: 1px;
+  min-width: 40px;
+  height: 40px;
+  width: 40px;
+  max-width: 40px;
+  padding: 0;
+  margin-right: 16px;
+}
+header .header_right .for_steam_login-autorize .logout:hover {
+  background: #42424e;
+}
+header .header_right .for_steam_login-autorize .withdraw-btn {
+  margin-left: 16px;
+  background: #5c5f6c;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 136px;
+  height: 40px;
+  border-radius: 3px;
+  color: #a8adb5;
+  padding: 0;
+}
+header .header_right .for_steam_login-autorize .withdraw-btn:hover {
+  background: #a8adb5;
+  color: #2e2e3a;
+}
+header .header_right .for_add_funds a,
+header .header_right .for_withdrawal a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 152px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #f2ff5b;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  padding-right: 22px;
+  padding-left: 22px;
+  transition: 0.3s ease-in-out;
+}
+header .header_right .for_add_funds a svg,
+header .header_right .for_withdrawal a svg {
+  margin-right: 8px;
+}
+header .header_right .for_add_funds a:hover,
+header .header_right .for_withdrawal a:hover {
+  background-color: #fbff20;
+}
+header .header_right .for_withdrawal {
+  margin-left: 20px;
+}
+
+.pl0 {
+  padding-left: 0;
+}
+
+.pr0 {
+  padding-right: 0;
+}
+
+.main-hero {
+  height: 712px;
+  background-image: url(/img/main-bg.svg), url(/img/main-shadow.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main-hero .blur-container {
+  margin-top: 88px;
+  width: 736px;
+  height: 209px;
+  background-image: url(/img/blur-hero.svg);
+  padding-top: 24px;
+}
+.main-hero .blur-container .mini-titile {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: #ededed;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.main-hero .blur-container h1 {
+  text-transform: uppercase;
+  max-width: 592px;
+  margin-top: 12px;
+}
+.main-hero .sub-title {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  color: #ededed;
+  max-width: 488px;
+  margin-top: 47px;
+}
+.main-hero .hero-ct {
+  position: relative;
+  display: block;
+  margin-top: -8px;
+  margin-left: 20px;
+}
+
+.offer-section {
+  padding-top: 122px;
+  padding-bottom: 237px;
+}
+.offer-section .wrapper-flex-for-title {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 90px;
+}
+.offer-section .wrapper-flex-for-title h2 {
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.offer-section .wrapper-flex-for-title .border-titile {
+  max-width: 695px;
+  margin-top: 20px;
+  display: block;
+}
+.offer-section .offer-card .offer-card-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.offer-section .offer-card .offer-card-title .offer-title {
+  margin-left: 16px;
+  text-transform: uppercase;
+}
+.offer-section .offer-card .offer-card-text {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #a8adb5;
+  margin-top: 12px;
+}
+.offer-section .col-lg-3 {
+  min-width: 334px;
+}
+
+.hottest-hero h2 {
+  text-transform: uppercase;
+}
+.hottest-hero .wrapper-flex-for-title {
+  display: flex;
+  flex-flow: column;
+}
+.hottest-hero .wrapper-flex-for-title img {
+  max-width: 695px;
+  display: block;
+  margin-top: 20px;
+}
+.hottest-hero h4 {
+  margin-top: 35px;
+  text-transform: uppercase;
+}
+.hottest-hero .pistol-wrapper-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 85px;
+  min-height: 500px;
+}
+.hottest-hero .pistol-wrapper-cart .pistol-cart {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.hottest-hero .pistol-wrapper-cart .pistol-cart .pistol-title {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  color: #f2ff5b;
+  position: relative;
+}
+.hottest-hero .pistol-wrapper-cart .pistol-cart .pistol-title span {
+  font-weight: 700;
+}
+.hottest-hero .pistol-wrapper-cart .pistol-cart .pistol-title::after {
+  content: url("/img/treck.svg");
+  position: absolute;
+  left: 50%;
+  top: 19px;
+}
+.hottest-hero .pistol-wrapper-cart .pistol-cart .main-pistol {
+  margin-top: 20px;
+  display: block;
+}
+.hottest-hero .pistol-wrapper-cart .pistol-cart2 {
+  margin-top: 68px;
+}
+.hottest-hero .pistol-wrapper-cart .pistol-cart3 {
+  margin-top: 31px;
+}
+.hottest-hero .custom-m4 {
+  position: absolute;
+  top: -370px;
+  right: -97px;
+}
+
+.popular {
+  padding-bottom: 254px;
+  background-image: url(/img/bgmain.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.popular .popular-card {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.popular .popular-card .pistol-title {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #f2ff5b;
+}
+.popular .popular-card .pistol-title span {
+  font-weight: 700;
+  margin-right: 10px;
+}
+.popular .popular-card .pistol-title::after {
+  content: url("/img/treck.svg");
+  position: absolute;
+  left: 50%;
+  top: 69px;
+}
+.popular h2 {
+  text-transform: uppercase;
+}
+.popular p.p.body_1 {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  color: #a8adb5;
+  width: 488px;
+  margin-top: 40px;
+  margin-bottom: 31px;
+}
+.popular .popular-icon-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+}
+.popular .popular-icon-wrapper p.p.popular-text {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #a8adb5;
+  margin-left: 23px;
+}
+
+.pre-footer {
+  padding-bottom: 168px;
+}
+.pre-footer .pre-footer-wrapper {
+  display: flex;
+  height: 136px;
+  background: rgba(168, 173, 181, 0.15);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url("/img/pre-footer.svg");
+  background-position: top;
+  background-repeat: repeat-x;
+}
+.pre-footer .pre-footer-wrapper .pre-footer-img {
+  position: absolute;
+  right: -55px;
+  bottom: 0;
+}
+.pre-footer .pre-footer-wrapper .p.pre-footer-text {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-left: 40px;
+  margin-right: 59px;
+}
+.pre-footer .pre-footer-wrapper a {
+  background: #f2ff5b;
+  border-radius: 3px;
+  width: 136px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: #2e2e3a;
+}
+.pre-footer .pre-footer-wrapper a:hover {
+  background: #fbff20;
+}
+.pre-footer .pre-footer-wrapper a .steam-icon {
+  display: block;
+  margin-right: 4px;
+}
+
+footer {
+  padding-top: 25px;
+  padding-bottom: 28px;
+}
+footer .footer-text {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  color: #a8adb5;
+  margin-bottom: 59px;
+}
+footer .footer-flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-flex-wrapper .footer-menu-box,
+footer .footer-flex-wrapper #footer-menu,
+footer .footer-flex-wrapper .mail-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+footer .footer-flex-wrapper .footer-mail {
+  margin-left: 10px;
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  color: #a8adb5;
+}
+footer .footer-flex-wrapper #footer-menu {
+  width: 150px;
+  margin-left: 8px;
+  justify-content: space-between;
+}
+footer .footer-flex-wrapper #footer-menu li a {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  color: #a8adb5;
+}
+
+.weapons {
+  padding-bottom: 160px;
+}
+.weapons .custom-card-weapon {
+  width: 217px;
+  height: 279px;
+  margin: 0 10px;
+}
+.weapons .custom-card-weapon .card-weapon {
+  height: 240px;
+  border-radius: 3px;
+  padding: 16px;
+}
+.weapons .custom-card-weapon .card-weapon .card-text-price {
+  display: flex;
+  align-items: center;
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  color: #ffffff;
+  margin-top: 21px;
+}
+.weapons .custom-card-weapon .card-weapon .card-text-price .dollar {
+  display: block;
+  margin-right: 7px;
+}
+.weapons .custom-card-weapon .card-weapon .card-title-item {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  color: #f2f2f2;
+}
+.weapons .custom-card-weapon .card-weapon button.btn,
+.weapons .custom-card-weapon .card-weapon .btn {
+  display: none;
+  transition: all 1s ease-out;
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.03em;
+  color: #2e2e3a;
+}
+.weapons .custom-card-weapon .card-weapon:hover {
+  height: 270px;
+}
+.weapons .custom-card-weapon .card-weapon:hover button.btn,
+.weapons .custom-card-weapon .card-weapon:hover .btn {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 184px;
+  height: 32px;
+  background: #f2ff5b;
+  border-radius: 3px;
+  transition: all 1s ease-out;
+}
+.weapons .custom-card-weapon .card-weapon:hover button.btn:hover,
+.weapons .custom-card-weapon .card-weapon:hover .btn:hover {
+  background: #fbff20;
+  border-radius: 3px;
+  box-shadow: -4px -4px 5px rgba(246, 226, 102, 0.12), 4px 4px 5px rgba(246, 226, 102, 0.12);
+}
+.weapons .custom-card-weapon .card-weapon:hover button.btn img,
+.weapons .custom-card-weapon .card-weapon:hover .btn img {
+  margin-right: 6px;
+}
+.weapons .custom-card-weapon .card-weapon .material-placeholder {
+  text-align: center;
+}
+.weapons .wrapper-flex-for-title {
+  margin-bottom: 78px;
+}
+.weapons .custom-card-weapon-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.error-page .error-page__wrapper {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.error-page .error-page__wrapper h1 {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 104px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.error-page .error-page__wrapper p {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #f2f2f2;
+  margin-bottom: 34px;
+}
+.error-page .error-page__wrapper .btn {
+  background: #f2ff5b;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 136px;
+  height: 40px;
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: #2e2e3a;
+}
+
+body.Error.page {
+  background-image: url(/img/error-img.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.doc-title-wrapper {
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+.doc-title-wrapper .col-lg-11 .doc-bg {
+  position: absolute;
+  top: -30px;
+  left: -70px;
+}
+.doc-title-wrapper .col-lg-11 h1 {
+  color: #fff;
+}
+.doc-title-wrapper p.date {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.content-doc {
+  padding-bottom: 170px;
+}
+.content-doc p {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #a8adb5;
+  margin-bottom: 20px;
+}
+.content-doc p strong span {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  display: block;
+}
+.content-doc ol {
+  margin-left: 20px;
+  list-style: number;
+}
+.content-doc ol li {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #a8adb5;
+  margin-bottom: 20px;
+}
+
+.content-faq h3 {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 34px;
+  margin-top: 60px;
+}
+.content-faq h4 {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+.content-faq p {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #a8adb5;
+}
+.content-faq .faq-bg.first-faq-bg {
+  background: #363645;
+  border-radius: 3px;
+  padding: 27px;
+}
+.content-faq .faq-bg {
+  background: #363645;
+  border-radius: 3px;
+  padding: 27px;
+  margin-bottom: 8px;
+}
+
+.terms-doc h4 {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 64px;
+  margin-bottom: 20px;
+}
+.terms-doc b {
+  font-weight: bold;
+  color: #fff;
+}
+.terms-doc ul {
+  margin-left: 20px;
+  list-style: disc;
+}
+.terms-doc ul li {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #a8adb5;
+  margin-bottom: 10px;
+}
+.terms-doc ul.sec-list {
+  margin-left: 40px;
+}
+.terms-doc table {
+  margin: 50px 0;
+}
+.terms-doc table td {
+  border: 1px solid #fff;
+  text-align: center;
+}
+.terms-doc table td p {
+  color: #fff;
+}
+
+.offer-section {
+  background-image: url("/img/bgnew.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  color: #fff;
+}
+
+h2 {
+  color: #fff;
+}
+
+.offer-section .offer-card .offer-card-title .offer-title,
+.hottest-hero h4 {
+  color: #fff;
+}
+
+.hottest-hero .pistol-wrapper-cart {
+  background-image: url("/img/bg-033.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.custom-card-weapon-wrapper .custom-card-weapon:nth-child(even) {
+  background-image: url("/img/yellow-bg.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.custom-card-weapon-wrapper .custom-card-weapon:nth-child(odd) {
+  background-image: url("/img/blue.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.custom-card-weapon-wrapper .custom-card-weapon:nth-child(5) {
+  background-image: url("/img/grey-bg.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.custom-card-weapon-wrapper .custom-card-weapon:hover {
+  background-size: cover;
+}
+
+.popular .popular-card {
+  background-image: url(/img/bg-03.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.main-hero .blur-container {
+  background-size: contain;
+}
+
+.mt70 {
+  margin-top: 70px;
+}
+
+.m4-mob {
+  display: none;
+}
+
+.mobile-pre-footer {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .main-hero .blur-container {
+    width: 100%;
+    margin-top: 20px;
+    background-size: cover;
+    max-height: 135px;
+    padding-top: 15px;
+  }
+
+  .main-hero .blur-container h1 {
+    font-family: "Orbitron";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 140%;
+    max-width: 260px;
+    text-transform: uppercase;
+    color: #ededed;
+  }
+
+  .main-hero .sub-title {
+    font-family: "Rajdhani";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #ededed;
+    max-width: 200px;
+  }
+
+  .main-hero .hero-ct {
+    max-width: 200px;
+    margin-top: -135px;
+    margin-left: 163px;
+  }
+
+  .main-hero {
+    max-height: 400px;
+  }
+
+  .offer-section {
+    background-image: none;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .offer-section .wrapper-flex-for-title h2 {
+    font-family: "Orbitron";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .wrapper-flex-for-title .border-titile {
+    width: 90vw;
+  }
+
+  .pl0 {
+    padding-left: 15px;
+  }
+
+  .pr0 {
+    padding-right: 15px;
+  }
+
+  .offer-section .offer-card {
+    margin-bottom: 35px;
+  }
+
+  .mt70 {
+    margin-top: 0;
+  }
+
+  .offer-section .wrapper-flex-for-title {
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-family: "Orbitron";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .m4-desk {
+    display: none;
+  }
+
+  .m4-mob {
+    display: block;
+  }
+
+  .hottest-hero .m4-mob .custom-m4 {
+    position: static;
+  }
+
+  .hottest-hero .pistol-wrapper-cart {
+    flex-flow: row wrap;
+    background-image: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hottest-hero .pistol-wrapper-cart .pistol-cart {
+    background-image: url(/img/bg-wep.svg);
+  }
+
+  .hottest-hero .pistol-wrapper-cart .pistol-cart2 {
+    margin-top: 92px;
+    margin-left: 30px;
+  }
+
+  .weapons .custom-card-weapon {
+    max-width: 160px;
+  }
+
+  .popular p.p.body_1 {
+    font-family: "Rajdhani";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #a8adb5;
+    max-width: 328px;
+  }
+
+  .pre-footer .pre-footer-wrapper .pre-footer-img {
+    max-width: 167px;
+    right: 2px;
+  }
+
+  .pre-footer .pre-footer-wrapper .p.pre-footer-text {
+    display: none;
+  }
+
+  footer .footer-flex-wrapper {
+    flex-flow: column wrap;
+  }
+  footer .footer-flex-wrapper div {
+    margin-bottom: 10px;
+  }
+
+  .pre-footer .pre-footer-wrapper a {
+    margin-left: 20px;
+  }
+
+  .pre-footer .pre-footer-wrapper {
+    height: 88px;
+  }
+
+  .mobile-pre-footer {
+    display: block;
+    font-family: "Rajdhani";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 50px;
+  }
+
+  .popular {
+    padding-bottom: 50px;
+  }
+
+  .doc-title-wrapper .col-lg-11 h1 {
+    font-family: "Orbitron";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: #ededed;
+  }
+
+  .doc-title-wrapper .col-lg-11 .doc-bg {
+    width: 400px;
+    height: 137px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .doc-title-wrapper p.date {
+    font-size: 14px;
+  }
+
+  .terms-doc table td p {
+    font-size: 14px;
+  }
+
+  .main-pistol {
+    max-width: 340px;
+  }
+}
+.mobile-header {
+  display: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-image: none;
+}
+.mobile-header .btn-menu {
+  font-family: "Rajdhani";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  background: #f2ff5b;
+  border-radius: 3px;
+  color: #2e2e3a;
+  width: 120px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+}
+.mobile-header .button-login {
+  margin-left: auto;
+}
+.mobile-header #burger-button {
+  margin-right: 17px;
+  width: 24px;
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  border-color: transparent;
+}
+.mobile-header #burger-button * {
+  pointer-events: none;
+}
+.mobile-header #burger-button .burger,
+.mobile-header #burger-button .close {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: 0.3s;
+}
+.mobile-header #burger-button .close {
+  opacity: 0;
+}
+.mobile-header #burger-button.open .burger {
+  opacity: 0;
+}
+.mobile-header #burger-button.open .close {
+  opacity: 1;
+}
+.mobile-header #burger-button.open ~ #popup {
+  left: 0;
+  transition: 0.3s;
+}
+.mobile-header #popup {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -110vw;
+  right: 0;
+  background-color: #4a4a53;
+  z-index: 1;
+  transition: 0.3s;
+}
+.mobile-header #popup .account_info .header_acc_link .header_logo_box {
+  padding: 15px;
+  background-size: contain;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.mobile-header #popup .account_info .header_acc_link .header_logo_box img {
+  max-width: 100%;
+}
+.mobile-header #popup .account_info input {
+  width: 100%;
+}
+.mobile-header #popup .account_info input[disabled] {
+  opacity: 0.6;
+}
+.mobile-header #popup .account_info .user_name {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 12px 15px 6px;
+  color: #6f767d;
+  font-size: 16px;
+  opacity: 0.6;
+  text-align: left;
+}
+.mobile-header #popup .account_info .user_name .user-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-flow: column-reverse;
+  align-items: center;
+}
+.mobile-header #popup .account_info .user_name svg {
+  margin-right: 0;
+}
+.mobile-header #popup .account_info .user_balance {
+  display: flex;
+  white-space: nowrap;
+}
+.mobile-header #popup .account_info .user_balance .content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #323232;
+  padding: 12px 15px 6px;
+  background-color: #1b1d1f;
+  color: #6f767d;
+  font-size: 16px;
+  text-align: left;
+}
+.mobile-header #popup .account_info .user_balance .coin {
+  margin: 0 8px;
+}
+.mobile-header #popup nav {
+  margin-top: 72px;
+  padding: 0 16px;
+}
+.mobile-header #popup nav li {
+  text-align: center;
+  border-bottom: 1px solid rgba(242, 242, 242, 0.1);
+  font-weight: 600;
+  padding-bottom: 10px;
+  margin-top: 17px;
+}
+.mobile-header #popup nav li a {
+  color: #a8adb5;
+}
+.mobile-header #popup nav li svg {
+  margin-right: 8px;
+}
+.mobile-header #popup .logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-header #popup .logout img {
+  margin-right: 10px;
+}
+.mobile-header #popup .pricing {
+  margin-top: 33px;
+}
+.mobile-header #popup .pricing span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-header #popup .pricing svg {
+  margin-right: 11px;
+}
+.mobile-header #popup .pricing .coin {
+  margin: 0 8px;
+}
+
+@media screen and (max-width: 749px) {
+  .header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: block;
+  }
+}
+.cookie-block {
+  position: fixed;
+  z-index: 11;
+  bottom: 5px;
+  left: 24px;
+  padding: 24px 68px 21px 36px;
+  background-color: #4a4a53;
+  color: #6f767d;
+  max-width: 57vw;
+  transition: 0.3s;
+}
+.cookie-block p {
+  color: #f2f2f2;
+}
+.cookie-block.hide {
+  left: -100vw;
+  right: unset;
+}
+.cookie-block #close-cookie {
+  position: absolute;
+  top: 9px;
+  right: 14px;
+  background-color: transparent;
+  border-color: transparent;
+}
+.cookie-block #close-cookie svg path {
+  transition: 0.3s;
+}
+.cookie-block #close-cookie:hover svg path {
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 749px) {
+  .cookie-block {
+    max-width: 100vw;
+    right: 16px;
+    left: 16px;
+    position: fixed;
+    transform: translateY(0);
+    bottom: 17px;
+  }
+
+  .popular {
+    background-image: none;
+  }
+}
+.copyright-text {
+  font-family: "Rajdhani";
+}

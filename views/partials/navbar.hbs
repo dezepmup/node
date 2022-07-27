@@ -1,0 +1,168 @@
+
+
+ <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pl0 ">
+                    <div class="header_flex">
+                        <div class="header_left">
+                            <a href="/">
+                                <img src="/img/logo-white.svg" alt="logo" class="logotype logo-main">
+                            </a>
+                        </div>
+                        <div class="header_right">
+                            {{#if user}}
+                            <div class="for_steam_login-autorize">
+                                <a class="user-icon-wrapper" href="/profile" style="background-color: transparent; padding-right: 0;">
+                                    <span style="color:#A8ADB5;" class="user-name">{{#each user}}{{this.personaname}}{{/each}}</span>
+                                    <img src="/img/profile.svg" alt="icon" class="user-icon">
+                                </a>
+                                <a href="/logout" class="logout">
+                                    <img src="/img/logout.svg" alt="logout">
+                                </a>
+                                <a href="/pay">
+                                    <img src="/img/funds.svg" alt="steam" class="steam-icon">
+                                    Add funds
+                                </a>
+                                <a href="/withdraw" class="withdraw-btn" style="padding: 0;">Withdrawal</a>
+                            </div>
+                            {{else}}
+                            <div class="for_steam_login">
+                                <a href="/auth/steam">
+                                    <img src="/img/steam.svg" alt="steam" class="steam-icon">
+                                    Sign in
+                                </a>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+  <header class="mobile-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex">
+          <button id="burger-button" class="">
+            <svg
+              class="burger"
+              width="24"
+              height="18"
+              viewBox="0 0 24 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 1H24M0 9H24M0 16.5H24"
+                stroke="#6F767D"
+                stroke-width="2"
+              />
+            </svg>
+            <svg
+              class="close"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L17 16.5M1 16.5L17 1"
+                stroke="#6F767D"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+          <a href="/" class="logo">
+            <img src="/img/logo-white.svg" alt="logo" />
+          </a>
+            {{#if user}}
+            <a href="/pay" class="btn-menu">
+                <img src="/img/funds.svg" alt="steam" class="steam-icon">
+                Add funds
+            </a>
+            {{else}}
+            <a href="/auth/steam" class="btn-menu">
+                <img src="/img/steam.svg" alt="steam" class="steam-icon">
+                Sign in
+            </a>
+            {{/if}}
+          <div id="popup">
+            <nav>
+              <ul>
+                  {{#if user}}
+                <li class="account_info">
+                  <div class="user_name">
+                    <a class="user-icon-wrapper" href="/profile">
+                        <span class="user-name">{{#each user}}{{this.personaname}}{{/each}}</span>
+                        <img src="/img/profile.svg" alt="icon" class="user-icon">
+                    </a>
+                  </div>
+                </li>
+                <li>
+                <a href="/logout" class="logout">
+                    <img src="/img/logout.svg" alt="logout">
+                    Log out
+                </a>
+                </li>
+                {{/if}}
+                <li>
+                  <a href="/faq">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.79001 19.338C10.1228 20.416 11.7858 21.0028 13.5 21C14.631 21 15.705 20.7495 16.6695 20.2995L20.103 20.985C20.224 21.0091 20.349 21.0029 20.4671 20.9671C20.5851 20.9313 20.6925 20.867 20.7798 20.7797C20.867 20.6925 20.9314 20.5851 20.9672 20.4671C21.003 20.349 21.0091 20.224 20.985 20.103L20.2995 16.671C20.7495 15.7065 21 14.631 21 13.5C21 11.7165 20.3775 10.08 19.338 8.79148C19.5515 9.90199 19.555 11.0427 19.3485 12.1545C19.663 13.5289 19.4852 14.9702 18.846 16.227C18.769 16.3777 18.7452 16.55 18.7785 16.716L19.2945 19.2945L16.7145 18.7785C16.549 18.7455 16.3773 18.7693 16.227 18.846C14.97 19.4861 13.5279 19.664 12.153 19.3485C11.0412 19.5552 9.9005 19.5516 8.79001 19.338V19.338ZM3.00001 10.5C3.00062 8.87703 3.52766 7.29807 4.502 6.00015C5.47635 4.70222 6.84542 3.75537 8.40369 3.30174C9.96195 2.84811 11.6253 2.91218 13.1441 3.48434C14.6628 4.05649 15.955 5.10586 16.8266 6.47489C17.6982 7.84392 18.1022 9.45875 17.978 11.0769C17.8538 12.6951 17.208 14.2293 16.1376 15.4493C15.0672 16.6692 13.63 17.509 12.0417 17.8426C10.4534 18.1763 8.79976 17.9857 7.32901 17.2995L3.89701 17.985C3.77602 18.0091 3.65097 18.0029 3.53292 17.9671C3.41487 17.9313 3.30747 17.867 3.22024 17.7797C3.13302 17.6925 3.06865 17.5851 3.03285 17.4671C2.99705 17.349 2.99092 17.224 3.01501 17.103L3.70051 13.6695C3.23765 12.6771 2.99851 11.595 3.00001 10.5V10.5ZM10.5 13.32C10.2514 13.32 10.0129 13.4188 9.83709 13.5946C9.66128 13.7704 9.56251 14.0088 9.56251 14.2575C9.56251 14.5061 9.66128 14.7446 9.83709 14.9204C10.0129 15.0962 10.2514 15.195 10.5 15.195C10.7486 15.195 10.9871 15.0962 11.1629 14.9204C11.3387 14.7446 11.4375 14.5061 11.4375 14.2575C11.4375 14.0088 11.3387 13.7704 11.1629 13.5946C10.9871 13.4188 10.7486 13.32 10.5 13.32V13.32ZM10.5 6.00448C8.92801 6.00448 7.70401 7.23148 7.72051 8.93698C7.7225 9.13589 7.80342 9.32587 7.94548 9.46512C8.08754 9.60436 8.27909 9.68147 8.47801 9.67948C8.67692 9.67749 8.86689 9.59657 9.00614 9.45451C9.14539 9.31245 9.2225 9.12089 9.22051 8.92198C9.21151 8.05348 9.76051 7.50448 10.5 7.50448C11.208 7.50448 11.7795 8.09248 11.7795 8.92948C11.7795 9.23248 11.6745 9.40198 11.2395 9.74548L10.824 10.068C10.065 10.674 9.75001 11.1435 9.75001 12C9.74966 12.1874 9.8195 12.3682 9.94577 12.5067C10.072 12.6452 10.2456 12.7314 10.4322 12.7483C10.6189 12.7652 10.8051 12.7117 10.9543 12.5982C11.1034 12.4846 11.2046 12.3194 11.238 12.135L11.2545 11.901C11.28 11.679 11.4045 11.52 11.7735 11.229L12.189 10.9065C12.9585 10.2915 13.2795 9.80848 13.2795 8.92948C13.2795 7.27348 12.0465 6.00448 10.5 6.00448Z"
+                        fill="#A8ADB5"
+                      />
+                    </svg>
+                    FAQ</a
+                  >
+                </li>
+                <li>
+                  <a href="/terms">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 4H6V20H18V7H15V4ZM6 2H16L20 6V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H6C5.46957 22 4.96086 21.7893 4.58579 21.4142C4.21071 21.0391 4 20.5304 4 20V4C4 3.46957 4.21071 2.96086 4.58579 2.58579C4.96086 2.21071 5.46957 2 6 2ZM8 11H16V13H8V11ZM8 15H16V17H8V15Z"
+                        fill="#A8ADB5"
+                      />
+                    </svg>
+                    Terms</a
+                  >
+                </li>
+                <li>
+                  <a href="/privacy">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 3.19L19 6.3V11C19 15.52 16.02 19.69 12 20.93C7.98 19.69 5 15.52 5 11V6.3L12 3.19ZM12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z"
+                        fill="#A8ADB5"
+                      />
+                    </svg>
+                    Privacy</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
