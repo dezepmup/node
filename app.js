@@ -15,6 +15,9 @@ const SteamCommunity = require('steamcommunity');
 const SteamTotp = require('steam-totp');
 const Environment = require('./data/constants/Environment');
 const config = Environment.getEnvironments();
+const axios = require('axios');
+const crypto = require('crypto');
+const bodyParser = require('body-parser');
 
 
 const Inventory = require('./models/inventory');
@@ -25,6 +28,14 @@ const Price = require('./models/price');
 
 const SteamBot = require('./bots');
 const priceUpdater = require('./helpers/priceUpdater');
+
+const sortKeys = x => {
+  if (typeof x !== 'object' || !x) return x;
+  if (Array.isArray(x)) return x.map(sortKeys);
+  return Object.keys(x)
+      .sort()
+      .reduce((o, k) => ({ ...o, [k]: sortKeys(x[k]) }), {});
+}
 
 const app = express();
 const server = http.Server(app);
@@ -160,8 +171,54 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
 app.use(cookieParser());
+app.use(bodyParser.json())
 
+app.post('/payment_intent', (req, res) => {
+  
+  if (!req.user) {
+    return res.redirect('/auth/steam');
+  }
+  const {
+    invoice = 0,
+    currency = 'USD',
+    amount = 0,
+    language = 'en',
+  } = req.body
+  const { password, username, host, salt } = config.start2Pay
 
+  let payload = {
+    invoice,
+    currency,
+    user_id: req.user.steamid,
+    display_options: { language }
+  }
+  
+  if(amount > 0) {
+    payload.amount = amount
+  }
+  
+  payload = sortKeys(payload)
+  payload.signature = crypto
+    .createHash('sha256')
+    .update(`${JSON.stringify(payload)}${salt}`)
+    .digest('hex')
+
+  const headers = {
+    Authorization: crypto.createHash('md5').update(`${username}:${password}`)
+  }
+  const { data } = await axios.post(`${host}/hpp/deposit`, payload, { headers: headers });
+
+  if (data && data.status && data.status === 'success' && 'payment_url' in data) {
+    res.send(200).json({ status: 'success', url: data.payment_url });
+  } else {
+    res.send(500).json({
+      status: 'fail',
+      error_code: data.error_code,
+      error_message: data.error_message,
+      error_message_extra: data.error_message_extra
+    });
+  }
+});
 
 app.get('/', (req, res) => {
   Item.findOne(

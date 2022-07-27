@@ -28,6 +28,17 @@ class Environment {
             database: dbUrl.pathname.replace('/', ''),
         };
 
+        env.start2Pay = {
+            /**
+             * `https://sandapi.start2pay.com` - test
+             * `https://api.start2pays.com` - prod
+             */
+            host: 'https://sandapi.start2pay.com',
+            username: '',
+            password: '',
+            salt: '',
+            callback_sign: ''
+        }
         return env;
     }
 }
